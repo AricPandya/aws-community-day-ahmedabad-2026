@@ -25,7 +25,7 @@ export function Header() {
           <Link to="/" className="flex items-center gap-2 font-bold text-xl text-gray-900">
           {/* <Calendar className="w-6 h-6 text-orange-600" /> */}
                <img src={logo} alt="community day" className="w-40 h-500 object-contain" />
-              <span>ACD Ahmedabad 2026</span>
+              {/* <span>ACD Ahmedabad 2026</span> */}
           </Link>
 
           <nav className="hidden md:flex items-center gap-1">
