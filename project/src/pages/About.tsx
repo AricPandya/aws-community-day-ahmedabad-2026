@@ -12,7 +12,7 @@ export function About() {
       image: '/src/data/images/Aric.png',
     },
     {
-      name: 'Rajesh Kumar',
+      name: 'Nilesh SIR',
       role: 'Co-organizer',
       organization: 'Tech Innovations Ltd',
       bio: 'DevOps specialist and AWS Solutions Architect. Speaker at 15+ tech events.',
