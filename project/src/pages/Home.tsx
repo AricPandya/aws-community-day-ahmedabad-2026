@@ -4,7 +4,8 @@ import { ArrowRight, Calendar, MapPin, Users, Sparkles } from 'lucide-react';
 import { SEOHead } from '../components/Layout/SEOHead';
 import { Countdown } from '../components/Countdown';
 import { supabase, Speaker, Sponsor } from '../lib/supabase';
-import { eventSchema, EVENT_INFO } from '../lib/seo';
+/// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { eventSchema } from '../lib/seo';
 
 export function Home() {
   const [speakers, setSpeakers] = useState<Speaker[]>([]);
@@ -29,12 +30,12 @@ export function Home() {
     })();
   }, []);
 
-  const metaDescription = 'Join AWS Community Day 2026 on December 13 in Vadodara. Learn from industry leaders, connect with fellow cloud enthusiasts, and explore the latest in AWS technologies.';
+  const metaDescription = 'Join AWS Community Day 2026 on 28th Feb in Ahmedabad. Learn from industry leaders, connect with fellow cloud enthusiasts, and explore the latest in AWS technologies.';
 
   return (
     <>
       <SEOHead
-        title="AWS Community Day 2026 | December 13, Vadodara"
+        title="AWS Community Day 2026 | 28th Feb, Ahmedabad"
         description={metaDescription}
         schema={eventSchema}
       />
@@ -75,19 +76,19 @@ export function Home() {
                   <div className="flex items-center justify-center gap-2 mb-2">
                     <Calendar className="w-5 h-5 text-orange-600" />
                   </div>
-                  <p className="text-sm text-gray-600">December 13, 2026</p>
+                  <p className="text-sm text-gray-600">February 28, 2026</p>
                 </div>
                 <div>
                   <div className="flex items-center justify-center gap-2 mb-2">
                     <MapPin className="w-5 h-5 text-orange-600" />
                   </div>
-                  <p className="text-sm text-gray-600">Vadodara, Gujarat</p>
+                  <p className="text-sm text-gray-600">Ahmedabad, Gujarat</p>
                 </div>
                 <div>
                   <div className="flex items-center justify-center gap-2 mb-2">
                     <Users className="w-5 h-5 text-orange-600" />
                   </div>
-                  <p className="text-sm text-gray-600">1000+ attendees</p>
+                  <p className="text-sm text-gray-600">1500+ attendees</p>
                 </div>
               </div>
 
