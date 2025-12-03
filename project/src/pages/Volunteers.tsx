@@ -131,7 +131,7 @@ export function Volunteers() {
               </div>
             </div>
 
-            {submitted ? (
+            {/* {submitted ? (
               <div className="bg-green-50 border border-green-200 rounded-lg p-6 text-center">
                 <CheckCircle className="w-12 h-12 text-green-600 mx-auto mb-4" />
                 <h2 className="text-2xl font-bold text-gray-900 mb-2">Thank You!</h2>
@@ -279,7 +279,7 @@ export function Volunteers() {
                   {loading ? 'Submitting...' : 'Submit Application'}
                 </button>
               </form>
-            )}
+            )} */}
           </div>
         </section>
       </main>
