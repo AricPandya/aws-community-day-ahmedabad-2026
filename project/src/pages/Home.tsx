@@ -3,25 +3,25 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Calendar, MapPin, Users, Sparkles } from 'lucide-react';
 import { SEOHead } from '../components/Layout/SEOHead';
 import { Countdown } from '../components/Countdown';
-import { supabase, Speaker, Sponsor } from '../lib/supabase';
+import { supabase, Sponsor } from '../lib/supabase';
 /// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { eventSchema } from '../lib/seo';
 
 export function Home() {
-  const [speakers, setSpeakers] = useState<Speaker[]>([]);
   const [sponsors, setSponsors] = useState<Sponsor[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     (async () => {
       try {
-        const [speakersRes, sponsorsRes] = await Promise.all([
-          supabase.from('speakers').select('*').order('sort_order').limit(3),
-          supabase.from('sponsors').select('*').order('sort_order').limit(6),
-        ]);
+        const { data: sponsorsData, error: sponsorsError } = await supabase
+          .from('sponsors')
+          .select('*')
+          .order('sort_order')
+          .limit(6);
 
-        setSpeakers(speakersRes.data || []);
-        setSponsors(sponsorsRes.data || []);
+        if (sponsorsError) throw sponsorsError;
+        setSponsors(sponsorsData || []);
       } catch (error) {
         console.error('Error loading home data:', error);
       } finally {
@@ -100,51 +100,7 @@ export function Home() {
         <section className="bg-white py-12 md:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">Featured Speakers</h2>
-            {loading ? (
-              <div className="text-center text-gray-500">Loading speakers...</div>
-            ) : (
-              <>
-                {speakers.length > 0 ? (
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                    {speakers.map((speaker) => (
-                      <Link
-                        key={speaker.id}
-                        to={`/speakers/${speaker.id}`}
-                        className="group bg-gray-50 rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
-                      >
-                        <div className="aspect-square bg-gray-200 overflow-hidden">
-                          {speaker.photo_url && (
-                            <img
-                              src={speaker.photo_url}
-                              alt={speaker.name}
-                              className="w-full h-full object-cover group-hover:scale-105 transition-transform"
-                              loading="lazy"
-                            />
-                          )}
-                        </div>
-                        <div className="p-4">
-                          <h3 className="font-bold text-gray-900 group-hover:text-orange-600 transition-colors">
-                            {speaker.name}
-                          </h3>
-                          <p className="text-sm text-gray-600">{speaker.title}</p>
-                          <p className="text-xs text-gray-500 mt-2">{speaker.organization}</p>
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
-                ) : (
-                  <div className="text-center text-gray-500 mb-8">More speakers coming soon...</div>
-                )}
-                <div className="text-center">
-                  <Link
-                    to="/speakers"
-                    className="inline-flex items-center gap-2 text-orange-600 font-semibold hover:text-orange-700 transition-colors"
-                  >
-                    View All Speakers <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </div>
-              </>
-            )}
+            <div className="text-center text-gray-500">Loading speakers...</div>
           </div>
         </section>
 
