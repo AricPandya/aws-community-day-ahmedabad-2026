@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "add-speaker": "node ./scripts/add-speaker.js",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
@@ -19,6 +20,7 @@
     "react-router-dom": "^7.9.6"
   },
   "devDependencies": {
+    "dotenv": "^16.3.1",
     "@eslint/js": "^9.9.1",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",

@@ -1,0 +1,15 @@
+{
+  "name": "Jane Doe",
+  "title": "Senior Cloud Engineer",
+  "organization": "ExampleCorp",
+  "talk_title": "Building resilient serverless apps on AWS",
+  "abstract": "A practical guide to designing serverless architectures that scale.",
+  "track": "Serverless",
+  "bio": "Jane is a cloud engineer with 8 years experience.",
+  "photo_url": "https://example.com/photos/jane.jpg",
+  "linkedin_url": "https://www.linkedin.com/in/janedoe",
+  "twitter_url": "https://twitter.com/janedoe",
+  "github_url": "https://github.com/janedoe",
+  "talk_length_minutes": 30,
+  "sort_order": 1
+}

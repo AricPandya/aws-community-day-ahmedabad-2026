@@ -5,21 +5,10 @@ import { SEOHead } from '../components/Layout/SEOHead';
 import { supabase, Speaker } from '../lib/supabase';
 
 export function Speakers() {
-  const [speakers, setSpeakers] = useState<Speaker[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const { data } = await supabase.from('speakers').select('*').order('sort_order');
-        setSpeakers(data || []);
-      } catch (error) {
-        console.error('Error loading speakers:', error);
-      } finally {
-        setLoading(false);
-      }
-    })();
-  }, []);
+  const [speakers] = useState<Speaker[]>([]);
+  // Do not fetch or display speakers publicly yet — show a placeholder message.
+  // Keep SpeakerDetail and other helpers intact for future use.
+  const [loading] = useState(false);
 
   const metaDescription = 'Meet the speakers at AWS Community Day 2026. Learn from industry experts sharing their knowledge on AWS and cloud technologies.';
 
