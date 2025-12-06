@@ -1,5 +1,5 @@
 import { useState } from 'react';
-// import { Menu, X, Calendar } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import logo from '../../data/images/ACD2026.ahm.main (1)-Photoroom.png';
 
@@ -23,9 +23,9 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center gap-2 font-bold text-xl text-gray-900">
-          {/* <Calendar className="w-6 h-6 text-orange-600" /> */}
-               <img src={logo} alt="community day" className="h-80 w-90 py-4 mt-2 object-contain" />
-              {/* <span>ACD Ahmedabad 2026</span> */}
+            {/* <Calendar className="w-6 h-6 text-orange-600" /> */}
+            <img src={logo} alt="community day" className="h-80 w-90 py-4 mt-2 object-contain" />
+            {/* <span>ACD Ahmedabad 2026</span> */}
           </Link>
 
           <nav className="hidden md:flex items-center gap-1">
@@ -55,7 +55,7 @@ export function Header() {
             aria-label="Toggle menu"
             aria-expanded={isOpen}
           >
-            {/* {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />} */}
+            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
 

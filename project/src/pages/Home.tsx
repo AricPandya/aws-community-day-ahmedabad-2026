@@ -35,7 +35,7 @@ export function Home() {
   return (
     <>
       <SEOHead
-        title="AWS Community Day 2026 | 28th Feb, Ahmedabad"
+        title="AWS Community Day Ahmedabad 2026"
         description={metaDescription}
         schema={eventSchema}
       />
