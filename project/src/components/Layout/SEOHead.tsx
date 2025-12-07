@@ -16,8 +16,8 @@ interface SEOHeadProps {
 export function SEOHead({
   title,
   description,
-  image = 'https://awscommunityday2026.com/og-image.webp',
-  url = 'https://awscommunityday2026.com',
+  image = 'https://acdahm2026.vercel.app/og-image.webp',
+  url = 'https://acdahm2026.vercel.app/',
   type = 'website',
   author,
   publishedDate,
