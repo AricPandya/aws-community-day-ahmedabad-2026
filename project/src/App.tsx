@@ -14,6 +14,7 @@ import { Badge } from './pages/Badge';
 import { Contact } from './pages/Contact';
 import { Travel } from './pages/Travel';
 import { CodeOfConduct, PrivacyPolicy, Accessibility } from './pages/Policies';
+import { Schedule } from './pages/Schedule';
 import { Admin } from './pages/Admin';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
+              <Route path="/schedule" element={<Schedule />} />
               <Route path="/speakers" element={<Speakers />} />
               <Route path="/speakers/:id" element={<SpeakerDetail />} />
               <Route path="/sponsors" element={<Sponsors />} />

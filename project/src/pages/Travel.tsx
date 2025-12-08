@@ -1,3 +1,4 @@
+/*
 import { Hotel, Navigation, AlertCircle } from 'lucide-react';
 import { SEOHead } from '../components/Layout/SEOHead';
 
@@ -250,6 +251,26 @@ export function Travel() {
             </a>
           </div>
         </section>
+      </main>
+    </>
+  );
+}
+*/
+
+import { SEOHead } from '../components/Layout/SEOHead';
+
+export function Travel() {
+  return (
+    <>
+      <SEOHead
+        title="Travel Guide | AWS Community Day 2026"
+        description="Travel guide for AWS Community Day 2026. Coming Soon."
+      />
+      <main className="min-h-screen bg-white pt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Travel Guide</h1>
+          <p className="text-xl text-gray-600">Coming Soon</p>
+        </div>
       </main>
     </>
   );
