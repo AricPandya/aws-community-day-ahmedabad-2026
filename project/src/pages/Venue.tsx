@@ -46,7 +46,7 @@ export function Venue() {
 
                 <h3 className="text-xl font-bold text-gray-900 mb-4">About the Venue</h3>
                 <p className="text-gray-700 mb-4">
-                 Gujarat University Convention and Exhibition Centre is a premier Convention Center in Gujarat, featuring modern auditoriums, breakout spaces, and excellent connectivity. The campus is designed to accommodate large-scale events with world-class facilities.
+                  Gujarat University Convention and Exhibition Centre is a premier Convention Center in Gujarat, featuring modern auditoriums, breakout spaces, and excellent connectivity. The campus is designed to accommodate large-scale events with world-class facilities.
                 </p>
 
                 <div className="bg-orange-50 border border-orange-200 rounded-lg p-4">
@@ -58,14 +58,14 @@ export function Venue() {
 
               <div className="bg-gray-100 rounded-lg overflow-hidden h-96 lg:h-auto">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3680.4721567890000!2d73.19494!3d22.223700!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fc5e5a5a5a5a5%3A0x5a5a5a5a5a5a5a5a!2sParul%20University!5e0!3m2!1sen!2sin!4v1234567890"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39115.26685003602!2d72.51608827537886!3d23.076485686281774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e84bc5cdcbb73%3A0xd8b3441adb8eab65!2sGujarat%20University%20Convention%20and%20Exhibition%20Centre!5e1!3m2!1sen!2sin!4v1765375657648!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Parul University Location"
+                  title="Gujarat University Convention and Exhibition Centre Location"
                 />
               </div>
             </div>
@@ -85,10 +85,10 @@ export function Venue() {
                   <strong>Sardar Vallabhbhai Patel International Airport</strong>
                 </p>
                 <p className="text-sm text-gray-600 mb-3">
-                  Located in Ahmedabad, approximately 110 km from the venue
+                  Located in Ahmedabad, approximately 16 km from the venue
                 </p>
                 <p className="text-sm text-gray-600">
-                  <strong>Travel time:</strong> 2-2.5 hours by cab or bus
+                  <strong>Travel time:</strong> 30-40 mins by cab or bus
                 </p>
               </div>
 
@@ -98,7 +98,7 @@ export function Venue() {
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">By Train</h3>
                 <p className="text-gray-600 mb-4">
-                  <strong>Vadodara Railway Station</strong>
+                  <strong>Sabarmati Railway Station</strong>
                 </p>
                 <p className="text-sm text-gray-600 mb-3">
                   Major railway hub with connections from across India
@@ -114,10 +114,10 @@ export function Venue() {
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">By Car</h3>
                 <p className="text-gray-600 mb-4">
-                  <strong>Well-connected by NH48 highway</strong>
+                  <strong>Well-connected by NH1 highway</strong>
                 </p>
                 <p className="text-sm text-gray-600 mb-3">
-                  Easy access from Ahmedabad, Surat, and surrounding cities
+                  Easy access from Vadodara, Surat, and surrounding cities
                 </p>
                 <p className="text-sm text-gray-600">
                   <strong>Parking:</strong> Ample free parking available at the venue
@@ -127,7 +127,7 @@ export function Venue() {
           </div>
         </section>
 
-        <section className="py-12 md:py-20">
+        {/* <section className="py-12 md:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Facilities & Amenities</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -161,9 +161,9 @@ export function Venue() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
-        <section className="bg-gray-50 py-12 md:py-20">
+        {/* <section className="bg-gray-50 py-12 md:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Accommodation</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
@@ -196,7 +196,7 @@ export function Venue() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
       </main>
     </>
   );

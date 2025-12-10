@@ -122,7 +122,7 @@ export function Volunteers() {
   };
 
   const metaDescription =
-    "Join our volunteer team at AWS Community Day 2026. Help us create an amazing experience for our community.";
+    "Here is our rockstar volunteer team for AWS Community Day Ahmedabad 2026. Help us create an amazing experience for our community.";
 
   return (
     <>
@@ -134,18 +134,18 @@ export function Volunteers() {
         <section className="bg-gradient-to-br from-orange-50 to-white py-12 md:py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Join Our Team
+              Our Rockstar Volunteers
             </h1>
-            <p className="text-lg text-gray-600 max-w-2xl">
+            {/* <p className="text-lg text-gray-600 max-w-2xl">
               Help us create an amazing experience for AWS Community Day 2026.
               Volunteers get exclusive perks and get recognized as part of the
               organizing team.
-            </p>
+            </p> */}
           </div>
         </section>
 
         <section className="py-12 md:py-20">
-          <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
               <div className="text-center">
                 <div className="text-3xl font-bold text-orange-600 mb-2">
@@ -171,56 +171,56 @@ export function Volunteers() {
                   Credited in program and socials
                 </p>
               </div>
+            </div> */}
+
+          {/* Volunteers Display Section */}
+          {/* <div className="mb-12">
+            <div className="flex items-center gap-3 mb-6">
+              <Users className="w-6 h-6 text-orange-600" />
+              <h2 className="text-2xl font-bold text-gray-900">
+                Our Volunteers
+              </h2>
+              <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-medium">
+                {volunteers.length} volunteers
+              </span>
+            </div> */}
+
+          {volunteersLoading ? (
+            <div className="text-center text-gray-500">
+              Loading volunteers...
             </div>
+          ) : volunteers.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 
-            {/* Volunteers Display Section */}
-            <div className="mb-12">
-              <div className="flex items-center gap-3 mb-6">
-                <Users className="w-6 h-6 text-orange-600" />
-                <h2 className="text-2xl font-bold text-gray-900">
-                  Our Volunteers
-                </h2>
-                <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-medium">
-                  {volunteers.length} volunteers
-                </span>
-              </div>
-
-              {volunteersLoading ? (
-                <div className="text-center text-gray-500">
-                  Loading volunteers...
-                </div>
-              ) : volunteers.length > 0 ? (
-               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-
-                  {volunteers.map((volunteer) => (
-                    <div
-                      key={volunteer.id}
-                      className="group bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg hover:border-orange-200 transition-all"
-                    >
-                      <div className="aspect-square bg-gray-200 overflow-hidden">
-                        {volunteer.photo_url ? (
-                          <img
-                            src={volunteer.photo_url}
-                            alt={volunteer.name}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform"
-                            loading="lazy"
-                          />
-                        ) : (
-                          <div className="w-full h-full flex items-center justify-center bg-gray-100">
-                            <span className="text-4xl font-bold text-gray-400">
-                              {volunteer.name.charAt(0).toUpperCase()}
-                            </span>
-                          </div>
-                        )}
+              {volunteers.map((volunteer) => (
+                <div
+                  key={volunteer.id}
+                  className="group bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg hover:border-orange-200 transition-all"
+                >
+                  <div className="aspect-square bg-gray-200 overflow-hidden">
+                    {volunteer.photo_url ? (
+                      <img
+                        src={volunteer.photo_url}
+                        alt={volunteer.name}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center bg-gray-100">
+                        <span className="text-4xl font-bold text-gray-400">
+                          {volunteer.name.charAt(0).toUpperCase()}
+                        </span>
                       </div>
-                      <div className="p-4">
-                        <h3 className="font-semibold text-gray-900 mb-1">
-                          {volunteer.name}
-                        </h3>
-                        {/* <p className="text-sm text-orange-600 font-medium mb-2">
+                    )}
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-semibold text-gray-900 mb-1">
+                      {volunteer.name}
+                    </h3>
+                    {/* <p className="text-sm text-orange-600 font-medium mb-2">
                           {volunteer.role}
                         </p> */}
-                        {/* {volunteer.experience_level && (
+                    {/* {volunteer.experience_level && (
                           <p className="text-xs text-gray-500 mb-2">
                             {volunteer.experience_level
                               ?.replace("-", " ")
@@ -240,22 +240,22 @@ export function Volunteers() {
                             </span>
                           ))}
                         </div> */}
-                        {(volunteer.linkedin_url ||
-                          volunteer.twitter_url ||
-                          volunteer.github_url) && (
-                          <div className="flex gap-2">
-                            {volunteer.linkedin_url && (
-                              <a
-                                href={volunteer.linkedin_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-gray-400 hover:text-orange-600 transition-colors"
-                                aria-label="LinkedIn"
-                              >
-                                <Linkedin className="w-4 h-4" />
-                              </a>
-                            )}
-                            {/* {volunteer.twitter_url && (
+                    {(volunteer.linkedin_url ||
+                      volunteer.twitter_url ||
+                      volunteer.github_url) && (
+                        <div className="flex gap-2">
+                          {volunteer.linkedin_url && (
+                            <a
+                              href={volunteer.linkedin_url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-gray-400 hover:text-orange-600 transition-colors"
+                              aria-label="LinkedIn"
+                            >
+                              <Linkedin className="w-4 h-4" />
+                            </a>
+                          )}
+                          {/* {volunteer.twitter_url && (
                               <a
                                 href={volunteer.twitter_url}
                                 target="_blank"
@@ -277,20 +277,20 @@ export function Volunteers() {
                                 <Github className="w-4 h-4" />
                               </a>
                             )} */}
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  ))}
+                        </div>
+                      )}
+                  </div>
                 </div>
-              ) : (
-                <div className="text-center text-gray-500">
-                  No volunteers yet. Be the first to join!
-                </div>
-              )}
+              ))}
             </div>
+          ) : (
+            <div className="text-center text-gray-500">
+              No volunteers yet. Be the first to join!
+            </div>
+          )}
+          {/* </div> */}
 
-            {/* {submitted ? (
+          {/* {submitted ? (
               <div className="bg-green-50 border border-green-200 rounded-lg p-6 text-center">
                 <CheckCircle className="w-12 h-12 text-green-600 mx-auto mb-4" />
                 <h2 className="text-2xl font-bold text-gray-900 mb-2">Thank You!</h2>
@@ -439,9 +439,9 @@ export function Volunteers() {
                 </button>
               </form>
             )} */}
-          </div>
+          {/* </div> */}
         </section>
-      </main>
+      </main >
     </>
   );
 }

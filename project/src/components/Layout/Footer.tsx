@@ -79,7 +79,7 @@ export function Footer() {
             <h4 className="font-semibold mb-4">Connect</h4>
             <div className="flex gap-4 mb-4">
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/awsahmedabadcommunity"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-orange-400 transition-colors"
@@ -88,7 +88,7 @@ export function Footer() {
                 <Linkedin className="w-5 h-5" />
               </a>
               <a
-                href="https://twitter.com"
+                href="https://x.com/awsugahm"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-orange-400 transition-colors"
@@ -97,7 +97,7 @@ export function Footer() {
                 <Twitter className="w-5 h-5" />
               </a>
               <a
-                href="mailto:contact@example.com"
+                href="mailto:awsugahm@gmail.com"
                 className="text-gray-400 hover:text-orange-400 transition-colors"
                 aria-label="Email"
               >
@@ -105,10 +105,10 @@ export function Footer() {
               </a>
             </div>
             <a
-              href="mailto:contact@example.com"
+              href="mailto:awsugahm@gmail.com"
               className="text-sm text-gray-400 hover:text-orange-400 transition-colors"
             >
-              contact@example.com
+              awsugahm@gmail.com
             </a>
           </div>
         </div>

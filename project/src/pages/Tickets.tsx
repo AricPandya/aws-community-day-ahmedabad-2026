@@ -41,7 +41,9 @@ export function Tickets() {
           </div>
         </section>
 
-        <section className="py-12 md:py-20">
+        <div className="text-center text-gray-500 mb-12">Ticket information coming soon...</div>
+
+        {/* <section className="py-12 md:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {loading ? (
               <div className="text-center text-gray-500">Loading ticket tiers...</div>
@@ -52,7 +54,7 @@ export function Tickets() {
                 ))}
               </div>
             ) : (
-              <div className="text-center text-gray-500 mb-12">Ticket information coming soon...</div>
+              
             )}
 
             <div className="bg-gray-50 rounded-lg p-8 max-w-2xl mx-auto">
@@ -67,9 +69,9 @@ export function Tickets() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
-        <section className="bg-gray-50 py-12 md:py-20">
+        {/* <section className="bg-gray-50 py-12 md:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Refund Policy</h2>
             <div className="max-w-2xl mx-auto bg-white p-8 rounded-lg">
@@ -93,7 +95,7 @@ export function Tickets() {
               </ul>
             </div>
           </div>
-        </section>
+        </section> */}
       </main>
     </>
   );
@@ -102,11 +104,10 @@ export function Tickets() {
 function TicketCard({ tier, featured }: { tier: TicketTier; featured?: boolean }) {
   return (
     <div
-      className={`rounded-lg overflow-hidden transition-all ${
-        featured
-          ? 'ring-2 ring-orange-600 shadow-lg scale-105'
-          : 'border border-gray-200 hover:shadow-lg'
-      } ${featured ? 'bg-gradient-to-br from-orange-50 to-white' : 'bg-white'}`}
+      className={`rounded-lg overflow-hidden transition-all ${featured
+        ? 'ring-2 ring-orange-600 shadow-lg scale-105'
+        : 'border border-gray-200 hover:shadow-lg'
+        } ${featured ? 'bg-gradient-to-br from-orange-50 to-white' : 'bg-white'}`}
     >
       {featured && (
         <div className="bg-orange-600 text-white text-center py-2 font-semibold text-sm">
@@ -130,11 +131,10 @@ function TicketCard({ tier, featured }: { tier: TicketTier; featured?: boolean }
         </div>
 
         <button
-          className={`w-full py-3 rounded-lg font-semibold transition-colors mb-6 ${
-            featured
-              ? 'bg-orange-600 text-white hover:bg-orange-700'
-              : 'border-2 border-orange-600 text-orange-600 hover:bg-orange-50'
-          }`}
+          className={`w-full py-3 rounded-lg font-semibold transition-colors mb-6 ${featured
+            ? 'bg-orange-600 text-white hover:bg-orange-700'
+            : 'border-2 border-orange-600 text-orange-600 hover:bg-orange-50'
+            }`}
         >
           Select Ticket
         </button>
