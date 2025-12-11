@@ -15,13 +15,14 @@ export const EVENT_INFO = {
 };
 
 export const DEFAULT_KEYWORDS = [
+  'aws community day ahmedabad 2026',
   'acd 2026',
-  'aws community day 2026 ahmedabad',
-  'aws community day ahmedabad',
-  'aws ahmedabad',
-  'cloud computing conference',
+  'aws community day february 2026',
+  'tech conference ahmedabad 2026',
   'aws user group ahmedabad',
-  'tech conference gujarat',
+  'cloud computing event gujarat',
+  'aws certification ahmedabad',
+  'devops conference india 2026',
 ].join(', ');
 
 export const generateMetaTags = (
