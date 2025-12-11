@@ -10,6 +10,7 @@ interface SEOHeadProps {
   publishedDate?: string;
   modifiedDate?: string;
   schema?: Record<string, any>;
+  keywords?: string;
 }
 
 export function SEOHead({
@@ -22,11 +23,13 @@ export function SEOHead({
   publishedDate,
   modifiedDate,
   schema,
+  keywords,
 }: SEOHeadProps) {
   return (
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
+      {keywords && <meta name="keywords" content={keywords} />}
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="canonical" href={url} />
 

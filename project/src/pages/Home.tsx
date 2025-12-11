@@ -4,8 +4,7 @@ import { ArrowRight, Calendar, MapPin, Users, Sparkles } from 'lucide-react';
 import { SEOHead } from '../components/Layout/SEOHead';
 import { Countdown } from '../components/Countdown';
 import { supabase, Sponsor } from '../lib/supabase';
-/// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { eventSchema } from '../lib/seo';
+import { eventSchema, DEFAULT_KEYWORDS } from '../lib/seo';
 
 export function Home() {
   const [sponsors, setSponsors] = useState<Sponsor[]>([]);
@@ -38,6 +37,7 @@ export function Home() {
         title="AWS Community Day Ahmedabad 2026"
         description={metaDescription}
         schema={eventSchema}
+        keywords={DEFAULT_KEYWORDS}
       />
 
       <main className="min-h-screen">

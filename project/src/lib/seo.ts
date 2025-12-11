@@ -1,6 +1,6 @@
 export const EVENT_INFO = {
   name: 'AWS Community Day 2026',
-  date: '2026-12-13',
+  date: '2026-02-28',
   startTime: '09:00:00',
   endTime: '18:00:00',
   timezone: '+05:30',
@@ -10,9 +10,19 @@ export const EVENT_INFO = {
   state: 'GJ',
   country: 'IN',
   postalCode: '391110',
-  website: 'https://awscommunityday2026.com',
+  website: 'https://acdahm2026.vercel.app',
   email: 'contact@awscommunityday2026.com',
 };
+
+export const DEFAULT_KEYWORDS = [
+  'acd 2026',
+  'aws community day 2026 ahmedabad',
+  'aws community day ahmedabad',
+  'aws ahmedabad',
+  'cloud computing conference',
+  'aws user group ahmedabad',
+  'tech conference gujarat',
+].join(', ');
 
 export const generateMetaTags = (
   title: string,
