@@ -1,17 +1,17 @@
 export const EVENT_INFO = {
-  name: 'AWS Community Day 2026',
+  name: 'AWS Community Day Ahmedabad 2026',
   date: '2026-02-28',
   startTime: '09:00:00',
   endTime: '18:00:00',
   timezone: '+05:30',
-  location: 'Parul University, Vadodara',
-  address: 'Parul University, Limda, Vadodara, Gujarat 391110, India',
-  city: 'Vadodara',
+  location: 'Gujarat University Convention and Exhibition Centre ',
+  address: 'Gujarat University Convention and Exhibition Centre , Ahmedabad, Gujarat 380052, India',
+  city: 'Ahmedabad',
   state: 'GJ',
   country: 'IN',
-  postalCode: '391110',
+  postalCode: '380052 ',
   website: 'https://acdahm2026.vercel.app',
-  email: 'contact@awscommunityday2026.com',
+  email: 'awsugahm@gmail.com',
 };
 
 export const DEFAULT_KEYWORDS = [
@@ -63,7 +63,7 @@ export const eventSchema = {
     'name': EVENT_INFO.location,
     'address': {
       '@type': 'PostalAddress',
-      'streetAddress': 'Limda',
+      'streetAddress': 'Memnagar',
       'addressLocality': EVENT_INFO.city,
       'addressRegion': EVENT_INFO.state,
       'postalCode': EVENT_INFO.postalCode,
@@ -71,7 +71,7 @@ export const eventSchema = {
     },
   },
   'image': `${EVENT_INFO.website}/og-image.webp`,
-  'description': 'AWS Community Day 2026 - A full-day event for cloud enthusiasts, students, and professionals to learn about AWS and connect with the community.',
+  'description': 'AWS Community Day Ahmedabad 2026 - A full-day event for cloud enthusiasts, students, and professionals to learn about AWS and connect with the community.',
   'organizer': {
     '@type': 'Organization',
     'name': 'AWS User Group Ahmedabad',
@@ -92,8 +92,8 @@ export const organizationSchema = {
   'url': EVENT_INFO.website,
   'logo': `${EVENT_INFO.website}/logo.png`,
   'sameAs': [
-    'https://www.linkedin.com/company/aws-user-group-ahmedabad',
-    'https://twitter.com/awsuserahmedabad',
+    'https://www.linkedin.com/company/awsahmedabadcommunity',
+    'https://x.com/awsugahm',
   ],
 };
 
