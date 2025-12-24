@@ -1,10 +1,10 @@
-import { createClient } from '@supabase/supabase-js';
+import { createClient } from "@supabase/supabase-js";
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || "";
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || "";
 
 if (!supabaseUrl || !supabaseAnonKey) {
-  console.warn('Supabase credentials not configured');
+  console.warn("Supabase credentials not configured");
 }
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
@@ -29,7 +29,14 @@ export type Speaker = {
 export type Sponsor = {
   id: string;
   company_name: string;
-  tier: 'Platinum' | 'Gold' | 'Silver' | 'Bronze';
+  tier:
+    | "Platinum Sponsors"
+    | "Gold Sponsors"
+    | "Silver Sponsors"
+    | "Booth Sponsors"
+    | "Community Partners"
+    | "Ticketing Partners"
+    | "Venue Partners";
   logo_url: string;
   website_url?: string;
   description: string;
@@ -91,4 +98,16 @@ export type Badge = {
   qr_code_url?: string;
   name: string;
   role: string;
+};
+
+export type ScheduleEntry = {
+  id: string;
+  time_slot: string;
+  start_time: string;
+  track_number: number;
+  title: string;
+  speaker?: string;
+  room?: string;
+  sort_order?: number;
+  created_at?: string;
 };

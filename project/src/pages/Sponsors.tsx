@@ -1,9 +1,7 @@
-import { useEffect, useState } from 'react';
-import { ExternalLink } from 'lucide-react';
-import { SEOHead } from '../components/Layout/SEOHead';
-import { supabase, Sponsor } from '../lib/supabase';
-
-const tiers = ['Platinum', 'Gold', 'Silver', 'Bronze'] as const;
+import { useEffect, useState } from "react";
+import { ExternalLink } from "lucide-react";
+import { SEOHead } from "../components/Layout/SEOHead";
+import { supabase, Sponsor } from "../lib/supabase";
 
 export function Sponsors() {
   const [sponsors, setSponsors] = useState<Record<string, Sponsor[]>>({});
@@ -13,27 +11,28 @@ export function Sponsors() {
     (async () => {
       try {
         const { data } = await supabase
-          .from('sponsors')
-          .select('*')
-          .order('sort_order');
+          .from("sponsors")
+          .select("*")
+          .order("sort_order");
 
-        const grouped = tiers.reduce(
-          (acc, tier) => {
-            acc[tier] = (data || []).filter((s) => s.tier === tier);
-            return acc;
-          },
-          {} as Record<string, Sponsor[]>
-        );
+        const grouped = (data || []).reduce((acc, sponsor) => {
+          if (!acc[sponsor.tier]) {
+            acc[sponsor.tier] = [];
+          }
+          acc[sponsor.tier].push(sponsor);
+          return acc;
+        }, {} as Record<string, Sponsor[]>);
         setSponsors(grouped);
       } catch (error) {
-        console.error('Error loading sponsors:', error);
+        console.error("Error loading sponsors:", error);
       } finally {
         setLoading(false);
       }
     })();
   }, []);
 
-  const metaDescription = 'Learn about our sponsors for AWS Community Day 2026. Interested in sponsoring? Check out our sponsorship packages.';
+  const metaDescription =
+    "Learn about our sponsors for AWS Community Day 2026. Interested in sponsoring? Check out our sponsorship packages.";
 
   return (
     <>
@@ -44,7 +43,9 @@ export function Sponsors() {
       <main className="min-h-screen bg-white">
         <section className="bg-gradient-to-br from-orange-50 to-white py-12 md:py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Sponsors</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Our Sponsors
+            </h1>
             <p className="text-lg text-gray-600 max-w-2xl">
               Supporting the AWS community through strategic partnerships.
             </p>
@@ -54,42 +55,52 @@ export function Sponsors() {
         <section className="py-12 md:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {loading ? (
-              <div className="text-center text-gray-500">Loading sponsors...</div>
+              <div className="text-center text-gray-500">
+                Loading sponsors...
+              </div>
             ) : (
-              <>
-                {tiers.map((tier) => {
-                  const tierSponsors = sponsors[tier] || [];
+              <div className="bg-white rounded-lg p-8">
+                {Object.entries(sponsors).map(([tier, tierSponsors]) => {
                   if (tierSponsors.length === 0) return null;
 
                   return (
-                    <div key={tier} className="mb-16">
-                      <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-                        {tier} Sponsors
+                    <div key={tier} className="mb-12">
+                      <h2 className="text-orange-600 text-lg font-bold text-center mb-6 tracking-wider">
+                        [ {tier.toUpperCase()} ]
                       </h2>
-                      <div className={`grid gap-6 mb-8 ${
-                        tier === 'Platinum'
-                          ? 'grid-cols-1 md:grid-cols-2'
-                          : tier === 'Gold'
-                          ? 'grid-cols-2 md:grid-cols-3'
-                          : 'grid-cols-2 md:grid-cols-4'
-                      }`}>
+                      <div className="flex flex-wrap justify-center items-center gap-8">
                         {tierSponsors.map((sponsor) => (
-                          <SponsorCard key={sponsor.id} sponsor={sponsor} />
+                          <a
+                            key={sponsor.id}
+                            href={sponsor.website_url || "#"}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block hover:scale-110 transition-transform"
+                          >
+                            <img
+                              src={sponsor.logo_url}
+                              alt={sponsor.company_name}
+                              className="max-h-16 max-w-32 object-contain"
+                            />
+                          </a>
                         ))}
                       </div>
                     </div>
                   );
                 })}
-              </>
+              </div>
             )}
           </div>
         </section>
 
         <section className="bg-gray-50 py-12 md:py-20">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Become a Sponsor</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Become a Sponsor
+            </h2>
             <p className="text-gray-700 mb-8">
-              Interested in supporting AWS Community Day 2026? We offer various sponsorship packages to match your business goals and budget.
+              Interested in supporting AWS Community Day 2026? We offer various
+              sponsorship packages to match your business goals and budget.
             </p>
             <button className="px-8 py-3 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 transition-colors">
               Download Sponsorship Prospectus
@@ -107,7 +118,7 @@ export function Sponsors() {
 function SponsorCard({ sponsor }: { sponsor: Sponsor }) {
   return (
     <a
-      href={sponsor.website_url || '#'}
+      href={sponsor.website_url || "#"}
       target="_blank"
       rel="noopener noreferrer"
       className="group bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg hover:border-orange-200 transition-all flex flex-col items-center justify-center min-h-40"
@@ -124,7 +135,9 @@ function SponsorCard({ sponsor }: { sponsor: Sponsor }) {
         {sponsor.company_name}
       </h3>
       {sponsor.description && (
-        <p className="text-xs text-gray-600 text-center mb-3 line-clamp-2">{sponsor.description}</p>
+        <p className="text-xs text-gray-600 text-center mb-3 line-clamp-2">
+          {sponsor.description}
+        </p>
       )}
       <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-orange-600 transition-colors opacity-0 group-hover:opacity-100" />
     </a>

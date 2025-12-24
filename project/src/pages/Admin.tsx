@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
-import { Users, UserCheck, Settings, LogOut } from 'lucide-react';
-import { speakersApi, volunteersApi } from '../lib/api';
-import { Speaker, Volunteer } from '../lib/supabase';
+import { Users, UserCheck, Settings, LogOut, Calendar, Building } from 'lucide-react';
+import { speakersApi, volunteersApi, schedulesApi, ScheduleEntry } from '../lib/api';
+import { Speaker, Volunteer, Sponsor, supabase } from '../lib/supabase';
 import { adminAuth } from '../lib/auth';
 import { AdminLogin } from '../components/Admin/AdminLogin';
 import { SpeakersManager } from '../components/Admin/SpeakersManager';
 import { VolunteersManager } from '../components/Admin/VolunteersManager';
+import { SchedulesManager } from '../components/Admin/SchedulesManager';
+import { SponsorsManager } from '../components/Admin/SponsorsManager';
 
 export function Admin() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -13,6 +15,8 @@ export function Admin() {
   const [activeTab, setActiveTab] = useState('speakers');
   const [speakers, setSpeakers] = useState<Speaker[]>([]);
   const [volunteers, setVolunteers] = useState<Volunteer[]>([]);
+  const [schedules, setSchedules] = useState<ScheduleEntry[]>([]);
+  const [sponsors, setSponsors] = useState<Sponsor[]>([]);
 
 
   useEffect(() => {
@@ -47,12 +51,16 @@ export function Admin() {
 
   const loadData = async () => {
     try {
-      const [speakersData, volunteersData] = await Promise.all([
+      const [speakersData, volunteersData, schedulesData, sponsorsData] = await Promise.all([
         speakersApi.getAll(),
-        volunteersApi.getAll()
+        volunteersApi.getAll(),
+        schedulesApi.getAll(),
+        supabase.from('sponsors').select('*').order('sort_order')
       ]);
       setSpeakers(speakersData);
       setVolunteers(volunteersData);
+      setSchedules(schedulesData);
+      setSponsors(sponsorsData.data || []);
     } catch (error) {
       console.error('Failed to load data:', error);
     }
@@ -92,7 +100,7 @@ export function Admin() {
 
       {/* Stats */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           <div className="bg-white rounded-lg shadow p-6">
             <div className="flex items-center">
               <Users className="w-8 h-8 text-orange-600" />
@@ -113,7 +121,16 @@ export function Admin() {
           </div>
           <div className="bg-white rounded-lg shadow p-6">
             <div className="flex items-center">
-              <Settings className="w-8 h-8 text-blue-600" />
+              <Building className="w-8 h-8 text-blue-600" />
+              <div className="ml-4">
+                <p className="text-sm font-medium text-gray-600">Total Sponsors</p>
+                <p className="text-2xl font-bold text-gray-900">{sponsors.length}</p>
+              </div>
+            </div>
+          </div>
+          <div className="bg-white rounded-lg shadow p-6">
+            <div className="flex items-center">
+              <Settings className="w-8 h-8 text-purple-600" />
               <div className="ml-4">
                 <p className="text-sm font-medium text-gray-600">Admin Panel</p>
                 <p className="text-2xl font-bold text-gray-900">Active</p>
@@ -146,6 +163,26 @@ export function Admin() {
               >
                 Volunteers ({volunteers.length})
               </button>
+              <button
+                onClick={() => setActiveTab('schedules')}
+                className={`py-4 px-1 border-b-2 font-medium text-sm ${
+                  activeTab === 'schedules'
+                    ? 'border-orange-500 text-orange-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700'
+                }`}
+              >
+                Schedule ({schedules.length})
+              </button>
+              <button
+                onClick={() => setActiveTab('sponsors')}
+                className={`py-4 px-1 border-b-2 font-medium text-sm ${
+                  activeTab === 'sponsors'
+                    ? 'border-orange-500 text-orange-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700'
+                }`}
+              >
+                Sponsors ({sponsors.length})
+              </button>
             </nav>
           </div>
 
@@ -161,6 +198,20 @@ export function Admin() {
               <VolunteersManager 
                 volunteers={volunteers}
                 onUpdate={setVolunteers}
+              />
+            )}
+
+            {activeTab === 'schedules' && (
+              <SchedulesManager 
+                schedules={schedules}
+                onUpdate={setSchedules}
+              />
+            )}
+
+            {activeTab === 'sponsors' && (
+              <SponsorsManager 
+                sponsors={sponsors}
+                onUpdate={setSponsors}
               />
             )}
           </div>
