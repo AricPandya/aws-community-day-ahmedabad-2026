@@ -69,10 +69,10 @@ export function Contact() {
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">Email</h3>
                 <a
-                  href="mailto:contact@awscommunityday2026.com"
+                  href="mailto: awsugahm@gmail.com"
                   className="text-orange-600 hover:text-orange-700 transition-colors"
                 >
-                  contact@awscommunityday2026.com
+                  awsugahm@gmail.com
                 </a>
                 <p className="text-sm text-gray-600 mt-2">
                   Response time: 24-48 hours
