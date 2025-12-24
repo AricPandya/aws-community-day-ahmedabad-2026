@@ -92,3 +92,15 @@ export type Badge = {
   name: string;
   role: string;
 };
+
+export type ScheduleEntry = {
+  id: string;
+  time_slot: string;
+  start_time: string;
+  track_number: number;
+  title: string;
+  speaker?: string;
+  room?: string;
+  sort_order?: number;
+  created_at?: string;
+};

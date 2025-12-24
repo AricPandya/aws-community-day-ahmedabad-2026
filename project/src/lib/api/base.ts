@@ -3,10 +3,11 @@ import { supabase } from '../supabase';
 export function createCrudApi<T extends { id: string; created_at: string }>(tableName: string) {
   return {
     async getAll(): Promise<T[]> {
+      const orderBy = tableName === 'schedules' ? 'start_time' : 'sort_order';
       const { data, error } = await supabase
         .from(tableName)
         .select('*')
-        .order('sort_order');
+        .order(orderBy);
 
       if (error) throw error;
       return data || [];

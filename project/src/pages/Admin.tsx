@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Users, UserCheck, Settings, LogOut } from 'lucide-react';
-import { speakersApi, volunteersApi } from '../lib/api';
+import { Users, UserCheck, Settings, LogOut, Calendar } from 'lucide-react';
+import { speakersApi, volunteersApi, schedulesApi, ScheduleEntry } from '../lib/api';
 import { Speaker, Volunteer } from '../lib/supabase';
 import { adminAuth } from '../lib/auth';
 import { AdminLogin } from '../components/Admin/AdminLogin';
 import { SpeakersManager } from '../components/Admin/SpeakersManager';
 import { VolunteersManager } from '../components/Admin/VolunteersManager';
+import { SchedulesManager } from '../components/Admin/SchedulesManager';
 
 export function Admin() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -13,6 +14,7 @@ export function Admin() {
   const [activeTab, setActiveTab] = useState('speakers');
   const [speakers, setSpeakers] = useState<Speaker[]>([]);
   const [volunteers, setVolunteers] = useState<Volunteer[]>([]);
+  const [schedules, setSchedules] = useState<ScheduleEntry[]>([]);
 
 
   useEffect(() => {
@@ -47,12 +49,14 @@ export function Admin() {
 
   const loadData = async () => {
     try {
-      const [speakersData, volunteersData] = await Promise.all([
+      const [speakersData, volunteersData, schedulesData] = await Promise.all([
         speakersApi.getAll(),
-        volunteersApi.getAll()
+        volunteersApi.getAll(),
+        schedulesApi.getAll()
       ]);
       setSpeakers(speakersData);
       setVolunteers(volunteersData);
+      setSchedules(schedulesData);
     } catch (error) {
       console.error('Failed to load data:', error);
     }
@@ -146,6 +150,16 @@ export function Admin() {
               >
                 Volunteers ({volunteers.length})
               </button>
+              <button
+                onClick={() => setActiveTab('schedules')}
+                className={`py-4 px-1 border-b-2 font-medium text-sm ${
+                  activeTab === 'schedules'
+                    ? 'border-orange-500 text-orange-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700'
+                }`}
+              >
+                Schedule ({schedules.length})
+              </button>
             </nav>
           </div>
 
@@ -161,6 +175,13 @@ export function Admin() {
               <VolunteersManager 
                 volunteers={volunteers}
                 onUpdate={setVolunteers}
+              />
+            )}
+
+            {activeTab === 'schedules' && (
+              <SchedulesManager 
+                schedules={schedules}
+                onUpdate={setSchedules}
               />
             )}
           </div>
