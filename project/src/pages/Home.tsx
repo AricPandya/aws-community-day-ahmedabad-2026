@@ -42,14 +42,16 @@ export function Home() {
       />
 
       <main className="min-h-screen">
-        <section className="relative bg-gradient-to-br from-orange-50 via-white to-blue-50 pt-20 pb-12 md:pt-32 md:pb-20">
+        {/* <section className="relative bg-gradient-to-br from-orange-50 via-white to-blue-50 pt-20 pb-12 md:pt-32 md:pb-20">
+         */}
+        <section className="relative bg-navy-blue pt-20 pb-12 md:pt-32 md:pb-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <div className="inline-flex items-center gap-2 bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm font-medium mb-6">
                 <Sparkles className="w-4 h-4" />
                 Save the Date
               </div>
-              <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4">
+              <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
                 AWS Community Day Ahmedabad
                 <span className="text-orange-600"> 2026</span>
               </h1>
@@ -121,30 +123,32 @@ export function Home() {
             ) : (
               <>
                 {sponsors.length > 0 ? (
-                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-8 items-center">
-                    {sponsors.map((sponsor) => (
-                      <a
-                        key={sponsor.id}
-                        href={sponsor.website_url || "#"}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-white p-4 rounded-lg hover:shadow-md transition-shadow flex items-center justify-center min-h-24"
-                      >
-                        <img
-                          src={sponsor.logo_url}
-                          alt={sponsor.company_name}
-                          className="max-w-full max-h-20 object-contain"
-                          loading="lazy"
-                        />
-                      </a>
-                    ))}
+                  <div className="overflow-hidden">
+                    <div className="flex animate-scroll gap-6 items-center">
+                      {sponsors.concat(sponsors).map((sponsor, index) => (
+                        <a
+                          key={`${sponsor.id}-${index}`}
+                          href={sponsor.website_url || "#"}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="bg-white p-4 rounded-lg hover:shadow-md transition-shadow flex items-center justify-center min-h-24 min-w-48 flex-shrink-0"
+                        >
+                          <img
+                            src={sponsor.logo_url}
+                            alt={sponsor.company_name}
+                            className="max-w-full max-h-20 object-contain"
+                            loading="lazy"
+                          />
+                        </a>
+                      ))}
+                    </div>
                   </div>
                 ) : (
                   <div className="text-center text-gray-500 mb-8">
                     Sponsor logos coming soon...
                   </div>
                 )}
-                <div className="text-center">
+                <div className="text-center mt-8">
                   <Link
                     to="/sponsors"
                     className="inline-flex items-center gap-2 text-orange-600 font-semibold hover:text-orange-700 transition-colors"
