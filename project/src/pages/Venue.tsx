@@ -1,8 +1,15 @@
-import { MapPin, Plane, Train, ParkingCircle, Accessibility } from 'lucide-react';
-import { SEOHead } from '../components/Layout/SEOHead';
+import {
+  MapPin,
+  Plane,
+  Train,
+  ParkingCircle,
+  Accessibility,
+} from "lucide-react";
+import { SEOHead } from "../components/Layout/SEOHead";
 
 export function Venue() {
-  const metaDescription = 'AWS Community Day 2026 venue details, location at Gujarat University Convention and Exhibition Ahmedabad Centre, parking, accessibility, and transportation information.';
+  const metaDescription =
+    "AWS Community Day 2026 venue details, location at Gujarat University Convention and Exhibition Ahmedabad Centre, parking, accessibility, and transportation information.";
 
   return (
     <>
@@ -13,9 +20,12 @@ export function Venue() {
       <main className="min-h-screen bg-white">
         <section className="bg-gradient-to-br from-orange-50 to-white py-12 md:py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Venue & Location</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Venue & Location
+            </h1>
             <p className="text-lg text-gray-600 max-w-2xl">
-              Find us at Gujarat University Convention and Exhibition Centre in Ahmedabad on Februray 28, 2026.
+              Find us at Gujarat University Convention and Exhibition Centre in
+              Ahmedabad on Februray 28, 2026.
             </p>
           </div>
         </section>
@@ -24,13 +34,19 @@ export function Venue() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
               <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">Event Location</h2>
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                  Event Location
+                </h2>
                 <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-6">
                   <div className="flex gap-3 mb-4">
                     <MapPin className="w-6 h-6 text-orange-600 flex-shrink-0" />
                     <div>
-                      <h3 className="font-bold text-gray-900">Gujarat University Convention and Exhibition Centre</h3>
-                      <p className="text-gray-600">Memnagar, Ahmedabad, Gujarat 380052</p>
+                      <h3 className="font-bold text-gray-900">
+                        Gujarat University Convention and Exhibition Centre
+                      </h3>
+                      <p className="text-gray-600">
+                        Memnagar, Ahmedabad, Gujarat 380052
+                      </p>
                       <p className="text-gray-500 text-sm mt-1">India</p>
                     </div>
                   </div>
@@ -44,16 +60,24 @@ export function Venue() {
                   </div>
                 </div>
 
-                <h3 className="text-xl font-bold text-gray-900 mb-4">About the Venue</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                  About the Venue
+                </h3>
                 <p className="text-gray-700 mb-4">
-                  Gujarat University Convention and Exhibition Centre is a premier Convention Center in Gujarat, featuring modern auditoriums, breakout spaces, and excellent connectivity. The campus is designed to accommodate large-scale events with world-class facilities.
+                  Gujarat University Convention and Exhibition Centre is a
+                  premier Convention Center in Gujarat, featuring modern
+                  auditoriums, breakout spaces, and excellent connectivity. The
+                  campus is designed to accommodate large-scale events with
+                  world-class facilities.
                 </p>
 
-                <div className="bg-orange-50 border border-orange-200 rounded-lg p-4">
+                {/* <div className="bg-orange-50 border border-orange-200 rounded-lg p-4">
                   <p className="text-sm text-gray-700">
-                    <strong className="text-gray-900">Directions:</strong> From Vadodara Railway Station, take NH48 towards Limda. The university is well-signposted. GPS: 22.2237° N, 73.1949° E
+                    <strong className="text-gray-900">Directions:</strong> From
+                    Vadodara Railway Station, take NH48 towards Limda. The
+                    university is well-signposted. GPS: 22.2237° N, 73.1949° E
                   </p>
-                </div>
+                </div> */}
               </div>
 
               <div className="bg-gray-100 rounded-lg overflow-hidden h-96 lg:h-auto">
@@ -74,7 +98,9 @@ export function Venue() {
 
         <section className="bg-gray-50 py-12 md:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Getting Here</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
+              Getting Here
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="bg-white rounded-lg p-8 border border-gray-200">
                 <div className="flex items-center justify-center w-12 h-12 bg-orange-100 rounded-lg mb-4">
@@ -82,7 +108,9 @@ export function Venue() {
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">By Air</h3>
                 <p className="text-gray-600 mb-4">
-                  <strong>Sardar Vallabhbhai Patel International Airport</strong>
+                  <strong>
+                    Sardar Vallabhbhai Patel International Airport
+                  </strong>
                 </p>
                 <p className="text-sm text-gray-600 mb-3">
                   Located in Ahmedabad, approximately 16 km from the venue
@@ -96,7 +124,9 @@ export function Venue() {
                 <div className="flex items-center justify-center w-12 h-12 bg-orange-100 rounded-lg mb-4">
                   <Train className="w-6 h-6 text-orange-600" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">By Train</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  By Train
+                </h3>
                 <p className="text-gray-600 mb-4">
                   <strong>Sabarmati Railway Station</strong>
                 </p>
@@ -104,7 +134,8 @@ export function Venue() {
                   Major railway hub with connections from across India
                 </p>
                 <p className="text-sm text-gray-600">
-                  <strong>Travel time:</strong> 30-45 minutes by taxi/auto to venue
+                  <strong>Travel time:</strong> 30-45 minutes by taxi/auto to
+                  venue
                 </p>
               </div>
 
@@ -120,7 +151,8 @@ export function Venue() {
                   Easy access from Vadodara, Surat, and surrounding cities
                 </p>
                 <p className="text-sm text-gray-600">
-                  <strong>Parking:</strong> Ample free parking available at the venue
+                  <strong>Parking:</strong> Ample free parking available at the
+                  venue
                 </p>
               </div>
             </div>
